@@ -5,6 +5,7 @@ from reportlab.lib import colors
 from reportlab.platypus import Table, TableStyle, Paragraph, Spacer, Frame
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfgen import canvas
+from reportlab.lib.enums import TA_JUSTIFY, TA_LEFT, TA_CENTER, TA_RIGHT
 import random
 import argparse
 
@@ -111,17 +112,11 @@ def generate_pdf(output_filename, num_pages=1):
     ('GRID', (0, 0), (-1, -1), 0.5, colors.black)
     ])
 
-    cell_style = ParagraphStyle([
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-    ], wordWrap = "LTR")
+    cell_style = ParagraphStyle(name="CELL_STYLE", wordWrap = "LTR", alignment=TA_CENTER)
 
-    center_cell_style = ParagraphStyle([
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-    ], wordWrap = "LTR")
+    center_cell_style = ParagraphStyle(name="CENTER_CELL_STYLE", wordWrap = "LTR", alignment=TA_CENTER)
 
-    description_style = ParagraphStyle([
-        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-    ], wordWrap = "LTR")
+    description_style = ParagraphStyle(name="DESCRIPTION_STYLE", wordWrap = "LTR", alignment=TA_LEFT)
 
     site_margin = 10
     frame_height = page_height - 2*site_margin
