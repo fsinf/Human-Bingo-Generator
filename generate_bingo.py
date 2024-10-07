@@ -18,8 +18,7 @@ To get a free drink, you need to find people who have done something mentioned i
 The best way to find people is to talk to them. 
 <br></br>
 <br></br>
-When you have 5 cells in a row, you can redeem your free drink. 
-The middle cell is a joker and can be included in a row.
+When you have 5 cells in a row or column, you can redeem your free drink.
 """
 
 list_of_strings = [
