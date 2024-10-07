@@ -8,6 +8,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.enums import TA_JUSTIFY, TA_LEFT, TA_CENTER, TA_RIGHT
 import random
 import argparse
+from datetime import datetime
 
 title_text = "Human Bingo/Free drink game"
 center_cell_text = "<b>Find \"someone\" who ...</b>"
@@ -90,10 +91,40 @@ list_of_strings = [
 "is from .cz",
 "is from .hu",
 "is from .uk",
-"is from .us"
+"is from .us",
+"is using Arch Linux",
+"is using Debian",
+"is using Ubuntu",
+"is using GNU/Hurd (or an uncommon Linux Distro)",
+"is using Gentoo",
+"is using Fedora",
+"is using OpenSUSE",
+"knows the Free Software song",
+"owns a physical server",
+"is renting a (virtual-) server",
+"owns a NAS",
+"has backups",
+"has recovered with backups",
+"has suffered from dataloss -> missing backups",
+"was at the top of St. Stephen (Vienna)",
+"was at Cobenzl View Platform (Vienna)",
+"was at the top of Donauturm (Vienna)",
+"was at Donauinsel (Vienna)",
+"has a ThinkPad",
+"has a Framework Laptop",
+"doesn't like coffee",
+"does work next to their studies",
+"does selfhost an Own-/Nextcloud instance",
+"does selfhost a Git server",
+"does selfhost an E-Mail server",
+"doesn't use WhatsApp",
+"disassembled their Laptop",
+"disassembled their Phone"
 ]
 
-def generate_pdf(output_filename, num_pages=1):    
+def generate_pdf(output_filename, num_pages=1):
+    random.seed()
+
     page_width, page_height = landscape(A4)
     table_size = 5
     cell_size = 70
